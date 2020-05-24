@@ -1,0 +1,50 @@
+% !TeX root = ../main.tex
+
+\begin{survey}
+\label{cha:survey}
+
+\title{An Overview on Text Entry Research}
+\maketitle
+
+Text Entry refers to the behavior of entering characters into electronic devices such as laptops, mobile phones. Over the last few years, the typing interface has changed a lot, from physical keyboards to virtual keyboards on mobile phones and smartwatches, VR keyboard, etc. Although the evolution of interfaces has greatly facilitated our life, it brings challenges to researchers. Text entry research often focus on four aspects: modeling of user input behavior, touch detection, algorithms and interface design.
+
+\section{User Input Behavior}
+User behavior study is the cirtical part of human-computer interaction, definitely text entry not excluded. Users typing behaviors differ a lot in different situations. Findlater\cite{flatglass2011} did a comprehensive study on how expert physical keyboard users typing patterns appeared on touch screens. The study revealed that participants typed with an average of 58.5WPM. In addition, most touches fell within the bounding box of corresponding keys. Even when the keyboard was invisible, the emergent keyboard also showed a QWERTY layout. Therefore, users could transfer their muscle memory of physical keyboards to touch screens. TOAST \cite{shi2018toast} further proved that users' touch points on a large touchable surface also formed a gaussian distribution with QWERTY layout. Furthermore, fitting keyboard location and size tended to drift over time, suggesting the necessity of an adaptive algorithm.
+
+With the increasing popularity of mobile devices, researchers also started exploring mobile text entry behaviors. BlindType\cite{lu2017blindtype} tried to investigate people's eyes-free typing on a touchpad using one thumb. It showed that participants could get familiar with one-thumb eyes-free typing with less than five phrases. At the same time, the emergent keyboard layout was similar to a standard QWERTY layout in a smaller size, suggesting that muscle memory could even be transferred to eyes-free use. Yi \cite{yi2017too} did a user study to test five different keyboard sizes ranging from 2.0cm - 4.0cm, finding that participants could type over 20WPM on 2.0cm keyboard. However, when the keyboard became smaller, the error rate increased significantly. Consistent with other works, the spread of space key was significantly larger compared to normal keys.
+
+\section{Touch Detection}
+Touch detection actually depends on what device we use. Capacitive screens are the most widely used sensors for mobile phones and some laptops, such as Microsoft Surface. With a capacitive screen, researchers normally get a 2-dimensional coordinate touch event regarding each tap \cite{shi2018toast, lu2017blindtype}. Force is another commonly used channel, often used to distinguish touches with different characteristics. For example, force can be utilized to choose a letter from ambiguous keyboard in PressureText \cite{mccallum2009pressuretext}, to control the move of cursor in ForceBoard \cite{zhong2018forceboard},.
+
+\section{Algorithms}
+Decoding algorithms serve as the role of interpreting user touches, namely, to match either a single tap to a character or a series of taps to a word.
+
+In word-level input, which means we assume users always input word by word, the most commonly used algorithm is based on Na\"ive Bayes devised by Goodman\cite{goodman2002language}. The algorithm aims to find the word with maximum possibility given a sequence of input, which is often an array of 2-dimensional coordinates. The mathematical form can be expressed as follows:
+\begin{equation}
+  argmax P(W|L) = argmax \frac{P(L|W) \times P(W)}{P(L)}
+\end{equation}
+in which $L$ is the input letter sequence, $W$ is a word coming from the corpus. Since $P(L)$ stays the same for every word, we can omit calculation. $P(W)$ is the language model that is related to word frequency. By simplicity, we often use bigram language model, that is to consider each tap as independent, which can be calculated by bivariate gaussian distribution. Although simple, it is proved to be very efficient, reducing the error rate by 1.67 - 1.87 in a soft keyboard task \cite{goodman2002language}. 
+
+TOAST \cite{shi2018toast} further proposed a relative decoding algorithm, which was to consider the variation of two consecutive touches together as a Gaussian distribution. This way could reduce the negative effect of hand drifting. Personalized and adaptive algorithms may also be developed for every user.
+
+Depending on specific circumstances, we can also use machine learning algorithms such as Decision Tree, support vector machine to classify different keys.
+
+\section{Interface Design}
+Interface design is a comprehensive part that is related to several aspects, including device size, keyboard layout and so on. 
+
+The most common and widely used layout is QWERTY, in both physical and virtual situations. However, QWERTY may not be suitable for certain scenarios. For instance, when the screen is small, QWERTY may cause the "fat finger" problem. Therefore, various forms of layouts came out in response to different needs.
+
+Ambiguous keyboards aim to introduce ambiguity so as to compensate for the inaccuracy of user touches. In ambiguous keyboards, one key would represent more than two or more characters. Each key is also larger, making it easier for people to find and press. T9, standing for Text on 9 keys, is a popular ambiguous keyboard, which can often be found in mobile phones. 1Line Keyboard\cite{li20111line} condensed three rows QWERTY to only one row on iPad, occupying much less space while still remaining 30WPM input speed.
+
+Some keyboards try to make adjustments on QWERTY. Split keyboard, which splits QWERTY by two halves, is often used on tablets when people are holding them. Lu et al. \cite{lu2019typing} improved traditional split keyboard by introducing peripheral typing, which enhanced typing experience with less attention on the keyboard part.
+
+With the development of sensing technologies, some text entry methods without any interface also emerged. Canesta Keyboard \cite{roeber2003typing} enabled typing on any surface by projecting a virtual keyboard via laser. ATK \cite{yi2015atk} introduced a ten-finger eyes-free typing technique in mid-air. With 3-dimensional real-time data, we could track the movement and position of each finger. TipText \cite{xu2019tiptext} even allowed a user to type on his or her tip finger with a thumb finger. The author ran simulations over millions of ambiguous layouts to find the optimal underlying one.
+
+Apart from these, interface design is also related to hand postures. Users can type with ten-fingers, thumbs and one hand.
+
+To sum up, text entry researchers usually focus on the above four aspects. People's typing experience has improved a lot in terms of speed and accuracy. Fast and natural text entry became available in devices like smartwatches. Our work provides possibilities to input text in any feasible flat surface with the signals of mobile phones.
+
+\bibliographystyle{plainnat}
+\bibliography{ref/appendix}
+
+\end{survey}
