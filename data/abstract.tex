@@ -3,14 +3,14 @@
 % 中英文摘要和关键字
 
 \begin{abstract}
-平板电脑、智能手表等电子设备因为其方便易用性已经成 为了人们生活和移动办公的重要组成部分。然而，在这些移动设备上的文本输入仍然存在在尺寸小、误触多并且输入慢等问题，另一方面，手机的硬件水平和传感能力在不断提高，为新的交互方式提供了可能性。
+平板电脑、智能手表等电子设备因为其方便易用性已经成 为了人们生活和移动办公的重要组成部分。然而，在这些移动设备上的文本输入仍然存在尺寸小、误触多并且输入慢等问题，另一方面，手机的硬件水平和传感能力在不断提高，为新的交互方式提供了可能性。
   
-基于手机的多种传感信号，我们开发了一个能在任意桌面上进行文本输入的高效技术。我们首先通过声音信号识别出用户的点击事件，然后通过深度图像获取点击的三维坐标。基于上述的点击识别，我们进行了用户实验采集用户在桌面上的输入数据，分析了用户的落点分布、输入速度、键盘大小等特征。然后，我们对点击数据进行了一系列的模拟实验，尝试不同的算法的有效性。最后，我们选取了半键盘相对模型进行作为单词纠错方法。此外，我们还在系统中集成了字符级别输入。最终，我们对单词级别输入、字符级别输入和单词与字符混合输入方式进行了测试。结果表明，用户输入单词的速度超过40WPM，输入字符的速度超过5WPM。另外，我们也讨论了本输入技术的优势和使用范畴。
+基于手机的多种传感信号，我们开发了一个能在任意桌面上进行高效文本输入的技术。我们首先通过声音信号识别出用户的点击事件，然后通过深度图像计算点击的三维坐标。基于上述的点击识别，我们首先进行了实验采集用户在桌面上的输入数据，分析了用户的落点分布、输入速度、键盘大小等特征。然后，我们对点击数据进行了一系列的模拟实验，尝试不同的算法的有效性。最后，我们选取了半键盘相对模型进行作为单词纠错方法。此外，我们还在系统中集成了字符级别输入。最终，我们对单词级别输入、字符级别输入和单词与字符混合输入方式进行了测试。结果表明，用户输入单词的速度超过40WPM，输入字符的速度超过5WPM。另外，我们也讨论了本输入技术的优势和使用范畴。
 
 本工作的主要贡献如下：
 \begin{itemize}
     \item 利用手机的传感能力实现了在任意桌面上十指输入的能力，且使用简单便捷，学习成本低
-    \item 技术同时支持单词级别和字符级别输入，具有广泛的使用空间和扩展空间
+    \item 技术同时支持单词级别和字符级别输入，并且方便切换，具有广泛的使用空间和扩展空间
 \end{itemize}
 
   % 关键词用“英文逗号”分隔
@@ -28,7 +28,7 @@
     The contributions of this paper can be concluded as follows:
     \begin{itemize}
         \item We utilized the sensing abilities of phones to implement text input on any table. It is easy to use and learn.
-        \item The technique support word and character level input, which can be widely used and extended to many situations
+        \item Our technique can seamlessly switch word level and character level input, which can be widely used and extended to many situations
     \end{itemize}
   \thusetup{
     keywords* = {Ten-finger Typing, Text Entry, Phone Sensing},
